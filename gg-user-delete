@@ -1,4 +1,7 @@
 #!/bin/bash
+# Include gg-lib
+. .gg-lib
+
 function delete_warning {
     echo 'WARNING! This will delete the user and the home directory'
     echo "It will also delete the user group if it's empty"
