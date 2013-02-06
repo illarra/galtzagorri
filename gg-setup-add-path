@@ -1,0 +1,20 @@
+#!/bin/bash
+# Include gg-lib
+. ./.gg-lib
+
+# Get current script PATH in $SCRIPT_PATH var
+get_script_path
+
+echo ''
+echo 'This script will add Galtzagorri dir to your PATH env var.'
+echo "PATH=${PATH}"
+echo ''
+
+prompt_yn "Do you want to add '${SCRIPT_PATH}' to your PATH env var?"
+
+# Add path
+path_add $SCRIPT_PATH
+
+echo ''
+echo 'Done!'
+echo ''

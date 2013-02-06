@@ -1,0 +1,51 @@
+#!/bin/bash
+
+# Get current script PATH, it saves the result in $SCRIPT_PATH
+function get_script_path {
+    SCRIPT_PATH="`dirname \"$0\"`"              # relative
+    SCRIPT_PATH="`( cd \"$MY_PATH\" && pwd )`"  # absolutized and normalized
+    if [ -z "$SCRIPT_PATH" ] ; then
+      # error; for some reason, the path is not accessible
+      # to the script (e.g. permissions re-evaled after suid)
+      exit 1  # fail
+    fi
+}
+
+# Add path to env PATH var
+# path_add /new/path
+function path_add {
+    if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
+        PATH="${PATH:+"$PATH:"}$1"
+    fi
+}
+
+# Prompt for user input
+# prompt "name" var_name
+function prompt {
+    local _result=$2
+
+    echo "Enter '$1' and press [ENTER]:"
+    read illarra_prompt
+
+    if [ -z "$illarra_prompt" ]; then
+        echo ''
+        echo "Argghh!! Empty '$1'!!"
+        echo ''
+        exit
+    fi
+
+    eval $_result="'$illarra_prompt'"
+}
+
+# Prompt y/n
+# prompt_yn "Do you want to reset the internets?"
+# delete_internets
+function prompt_yn {
+    read -p "$1 [y/n]: " -n 1
+    echo ""
+
+    if [[ ! $REPLY =~ ^[Yy]$ ]]
+    then
+        exit 1
+    fi
+}
