@@ -2,20 +2,14 @@
 # Include gg-lib
 . .gg-lib
 
-function delete_warning {
-    echo 'WARNING! This will delete the user and the home directory'
-    echo "It will also delete the user group if it's empty"
-}
-
 if [ -z "$1" ]; then
     echo ''
     echo "Usage: gg-user-delete <username>"
     echo ''
-    delete_warning
-    echo ''
 else 
     echo ''
-    delete_warning
+    echo 'WARNING! This will delete the user and the home directory.'
+    echo "It will also delete the user group if it's empty."
     echo ''
 
     prompt_yn "Do you want to continue?"
