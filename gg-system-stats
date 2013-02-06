@@ -8,6 +8,10 @@ USEDMEM1=`expr $USEDMEM \* 100`
 PERCENTAGE=`expr $USEDMEM1 / $MAXMEM`%
 
 echo ''
+echo 'STORAGE'
+df-h
+echo ''
+echo 'RAM'
 echo "Total Memory:           $MAXMEM KB"
 echo "Used Memory:            $USEDMEM KB" 
 echo "Used Memory Percentage: $PERCENTAGE"
