@@ -14,7 +14,7 @@ if [ -z "$1" ]; then
     echo "<poolname> should be the same as the username."
     echo ''
 else 
-    FILE="${GG_FPM_POOLS_PATH}/${1}"
+    FILE="${GG_FPM_POOLS_PATH}/${1}.conf"
 
     if [ -f $FILE ]; then
         rm $FILE

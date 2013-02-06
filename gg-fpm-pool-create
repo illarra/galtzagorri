@@ -1,9 +1,22 @@
 #!/bin/bash
+# Include gg-paths
+. .gg-paths
+
 if [ -z "$1" ]; then
     echo ''
     echo "Usage: gg-fpm-pool-create <poolname>"
     echo "<poolname> should be the same as the username."
     echo ''
 else 
-    echo $1
+    FILE="${GG_FPM_POOLS_PATH}/${1}.conf"
+    sed -e "s;%POOLNAME%;$1;" $SCRIPT_PATH/templates/fpm-pool.tpl > $FILE
+
+    #if [ -f $FILE ]; then
+    #    rm $FILE
+    #    $SCRIPT_PATH/gg-fpm restart
+    #else
+    #    echo ''
+    #    echo "File ${FILE} not found!"
+    #    echo ''
+    #fi
 fi
