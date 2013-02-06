@@ -49,16 +49,3 @@ function prompt_yn {
         exit 1
     fi
 }
-
-# FROM BSFL
-# returns 0 if a variable is defined (set) and value's length > 0
-# returns 1 otherwise
-#
-function has_value {
-    if defined $1; then
-        if [[ -n ${!1} ]]; then
-            return 0
-        fi
-    fi
-    return 1
-}

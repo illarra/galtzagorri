@@ -1,7 +1,8 @@
 #!/bin/bash
-if has_value $1
+
+if [ -z "$1" ]
 then
-    apt-cache pkgnames | grep -i $1
-else
     apt-cache pkgnames
+else 
+    apt-cache pkgnames | grep -i $1
 fi
