@@ -1,0 +1,19 @@
+#!/bin/bash
+# Include gg-lib
+. .gg-lib
+
+# Get current script location in $SCRIPT_PATH var
+get_script_path
+
+echo ''
+echo 'GALTZGORRI scripts'
+echo ''
+echo 'SETUP'
+echo "It's recommended to add galtzagorri installation path to you PATH env var."
+echo "Check if '${SCRIPT_PATH}' is found in your PATH:"
+echo ''
+echo "PATH=${PATH}"
+echo ''
+echo 'If not, just add it so you can call "gg-" from anywhere:'
+echo "$ PATH=\$PATH:${SCRIPT_PATH}"
+echo ''

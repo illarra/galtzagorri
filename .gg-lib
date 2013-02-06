@@ -6,23 +6,15 @@
 # gg-apt-install a b c d
 # => apt-get install a b c d
 
-# Get current script PATH, it saves the result in $SCRIPT_PATH
+# Get script location, it saves the result in $SCRIPT_PATH
 function get_script_path {
-    SCRIPT_PATH="`dirname \"$0\"`"              # relative
-    SCRIPT_PATH="`( cd \"$MY_PATH\" && pwd )`"  # absolutized and normalized
-    if [ -z "$SCRIPT_PATH" ] ; then
-      # error; for some reason, the path is not accessible
-      # to the script (e.g. permissions re-evaled after suid)
-      exit 1  # fail
-    fi
-}
-
-# Add path to env PATH var
-# path_add /new/path
-function path_add {
-    if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
-        PATH="${PATH:+"$PATH:"}$1"
-    fi
+    SOURCE="${BASH_SOURCE[0]}"
+    while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+      SCRIPT_PATH="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+      SOURCE="$(readlink "$SOURCE")"
+      [[ $SOURCE != /* ]] && SOURCE="$SCRIPT_PATH/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+    done
+    SCRIPT_PATH="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 }
 
 # Prompt for user input
