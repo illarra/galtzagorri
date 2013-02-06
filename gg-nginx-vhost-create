@@ -1,1 +1,23 @@
 #!/bin/bash
+# Include gg-lib
+. .gg-lib
+. .gg-paths
+
+# Get current script location in $SCRIPT_PATH var
+get_script_path
+
+if [ ! $# == 5 ]; then
+    echo ''
+    echo "Usage: gg-nginx-vhost-create <domain> <username> <project> <env> <front-controller>"
+    echo "<domain>: stage.example.com, \"example.com www.example.com\", ..."
+    echo "<env>: prod, staging, ... (capifony env)"
+    echo "<front-controller>: app, app_dev, ... (without .php extension)"
+    echo ''
+else
+    CONF="${2}_${3}_${4}" 
+    FILE_AVAILABLE="${GG_NGINX_AVAILABLE}/${CONF}"
+    FILE_ENABLED="${GG_NGINX_ENABLED}/${CONF}"
+    sed -e "s;%DOMAIN%;$1;" -e "s;%USERNAME%;$2;" -e "s;%PROJECT%;$3;" -e "s;%ENV%;$4;" -e "s;%FRONTCONTROLLER%;$5;" $SCRIPT_PATH/templates/nginx-vhost.tpl > $FILE_AVAILABLE
+    ln -s $FILE_AVAILABLE $FILE_ENABLED
+    $SCRIPT_PATH/gg-nginx restart
+fi
