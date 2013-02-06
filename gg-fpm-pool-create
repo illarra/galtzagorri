@@ -1,4 +1,10 @@
 #!/bin/bash
+# Include gg-lib
+. .gg-lib
+
+# Get current script location in $SCRIPT_PATH var
+get_script_path
+
 # Include gg-paths
 . .gg-paths
 
