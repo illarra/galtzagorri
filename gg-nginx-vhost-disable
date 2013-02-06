@@ -1,0 +1,23 @@
+#!/bin/bash
+# Include gg-lib
+. .gg-paths
+
+if [ ! $# == 3 ]; then
+    echo ''
+    echo "Usage: gg-nginx-vhost-disable <username> <project> <env>"
+    echo "<env>: prod, staging, ... (capifony env)"
+    echo ''
+else
+    CONF="${1}_${2}_${3}" 
+    FILE_ENABLED="${GG_NGINX_ENABLED}/${CONF}"
+
+    if [ -f $FILE_ENABLED ]; then
+        rm $FILE_ENABLED
+        $SCRIPT_PATH/gg-fpm restart
+    else
+        echo ''
+        echo "${CONF} it's not enabled!"
+        echo "Run gg-nginx-vhost-list-enabled to see enabled vhosts."
+        echo ''
+    if
+fi

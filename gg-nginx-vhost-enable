@@ -1,0 +1,31 @@
+#!/bin/bash
+# Include gg-lib
+. .gg-paths
+
+if [ ! $# == 3 ]; then
+    echo ''
+    echo "Usage: gg-nginx-vhost-enable <username> <project> <env>"
+    echo "<env>: prod, staging, ... (capifony env)"
+    echo ''
+else
+    CONF="${1}_${2}_${3}" 
+    FILE_AVAILABLE="${GG_NGINX_AVAILABLE}/${CONF}"
+    FILE_ENABLED="${GG_NGINX_ENABLED}/${CONF}"
+
+    if [ ! -f $FILE_ENABLED ]; then
+        if [ -f $FILE_AVAILABLE ]; then
+            ln -s $FILE_AVAILABLE $FILE_ENABLED
+            $SCRIPT_PATH/gg-fpm restart
+        else
+            echo ''
+            echo "${CONF} not found!"
+            echo "Run gg-nginx-vhost-list-available to see available vhosts."
+            echo ''
+        fi
+    else
+        echo ''
+        echo "${CONF} it's already enabled!"
+        echo "Run gg-nginx-vhost-list-enabled to see enabled vhosts."
+        echo ''
+    fi
+fi
