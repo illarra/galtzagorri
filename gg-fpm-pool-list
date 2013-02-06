@@ -11,6 +11,7 @@ function filter_warning {
 if [ -z "$1" ]; then
     filter_warning
     ls $GG_FPM_POOLS
+    echo ''
 else
     ls $GG_FPM_POOLS | grep --color -i $1
 fi
