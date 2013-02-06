@@ -14,6 +14,6 @@ echo "Check if '${SCRIPT_PATH}' is found in your PATH:"
 echo ''
 echo "PATH=${PATH}"
 echo ''
-echo 'If not, just add it so you can run Galtzagorri (gg) scripts from anywhere:'
-echo "$ PATH=\$PATH:${SCRIPT_PATH}"
+echo 'If not, just add it to your .profile file so you can run Galtzagorri (gg) scripts from anywhere:'
+echo "export PATH=\$PATH:${SCRIPT_PATH}"
 echo ''
