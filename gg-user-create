@@ -1,0 +1,8 @@
+#!/bin/bash
+if [ -z "$1" ]; then
+    echo ''
+    echo "Usage: gg-user-create <username>"
+    echo ''
+else 
+    adduser $1
+fi

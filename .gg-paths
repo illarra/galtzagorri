@@ -1,0 +1,6 @@
+#!/bin/bash
+# FPM
+GG_FPM_PATH="/etc/php5/fpm"
+GG_FPM_PHP_INI="${GG_FPM_PATH}/php.ini"
+GG_FPM_CONFIG="${GG_FPM_PATH}/php-fpm.conf"
+GG_FPM_POOLS_PATH="${GG_FPM_PATH}/pool.d"
