@@ -40,10 +40,11 @@ function prompt {
 # delete_internets
 function prompt_yn {
     read -p "$1 [y/n]: " -n 1
-    echo ""
+    echo ''
 
     if [[ ! $REPLY =~ ^[Yy]$ ]]
     then
+        echo ''
         exit 1
     fi
 }
