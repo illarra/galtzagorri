@@ -9,7 +9,7 @@ PERCENTAGE=`expr $USEDMEM1 / $MAXMEM`%
 
 echo ''
 echo 'STORAGE'
-df-h
+df -h
 echo ''
 echo 'RAM'
 echo "Total Memory:           $MAXMEM KB"
