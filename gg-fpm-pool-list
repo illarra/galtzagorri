@@ -1,0 +1,16 @@
+#!/bin/bash
+# Include gg-lib
+. .gg-paths
+
+if [ -z "$1" ]; then
+    echo ''
+    echo "Usage: gg-fpm-pool-list <filter>"
+    echo "Use % filter to show all entries."
+    echo ''
+else 
+    if [ $1 = "%" ]; then
+        ls $GG_FPM_POOLS
+    else
+        ls $GG_FPM_POOLS | grep --color -i $1
+    fi
+fi
