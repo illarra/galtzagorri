@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# total memory
+memt=$(free -tom | grep "Total:" | awk '{print $2}')
+# used memory
+memu=$(free -tom | grep "Total:" | awk '{print $3}')
+# free memory
+memf=$(free -tom | grep "Total:" | awk '{print $4}')
+
+echo ''
+echo "Total memory: $memt MB"
+echo "Used memory:  $memu MB"
+echo "Free memory:  $memf MB"
+echo ''
