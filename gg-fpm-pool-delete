@@ -1,12 +1,10 @@
 #!/bin/bash
 # Include gg-lib
 . .gg-lib
+. .gg-paths
 
 # Get current script location in $SCRIPT_PATH var
 get_script_path
-
-# Include gg-paths
-. .gg-paths
 
 if [ -z "$1" ]; then
     echo ''
@@ -14,7 +12,7 @@ if [ -z "$1" ]; then
     echo "<poolname> should be the same as the username."
     echo ''
 else 
-    FILE="${GG_FPM_POOLS_PATH}/${1}.conf"
+    FILE="${GG_FPM_POOLS}/${1}.conf"
 
     if [ -f $FILE ]; then
         rm $FILE
