@@ -1,13 +1,14 @@
 #!/bin/bash
+function filter_warning {
+    echo ''
+    echo 'You can filter the list with: gg-apt-list-installed <filter>'
+    echo ''
+}
+
 if [ -z "$1" ]; then
-    echo ''
-    echo "Usage: gg-apt-list-installed <filter>"
-    echo "Use % filter to show all packages."
-    echo ''
-else 
-    if [ $1 = "%" ]; then
-        dpkg --get-selections | grep --color -i "[[:space:]]install"
-    else
-        dpkg --get-selections | grep --color -i "[[:space:]]install" | grep --color -i $1
-    fi
+    filter_warning
+    dpkg --get-selections | grep --color -i "[[:space:]]install"
+    filter_warning
+else
+    dpkg --get-selections | grep --color -i "[[:space:]]install" | grep --color -i $1
 fi

@@ -2,15 +2,16 @@
 # Include gg-lib
 . .gg-paths
 
+function filter_warning {
+    echo ''
+    echo 'You can filter the list with: gg-nginx-vhost-list-available <filter>'
+    echo ''
+}
+
 if [ -z "$1" ]; then
-    echo ''
-    echo "Usage: gg-nginx-vhost-list-available <filter>"
-    echo "Use % filter to show all entries."
-    echo ''
-else 
-    if [ $1 = "%" ]; then
-        ls $GG_NGINX_AVAILABLE
-    else
-        ls $GG_NGINX_AVAILABLE | grep --color -i $1
-    fi
+    filter_warning
+    ls $GG_NGINX_AVAILABLE
+    filter_warning
+else
+    ls $GG_NGINX_AVAILABLE | grep --color -i $1
 fi

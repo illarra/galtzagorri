@@ -1,13 +1,14 @@
 #!/bin/bash
+function filter_warning {
+    echo ''
+    echo 'You can filter the list with: gg-group-list <filter>'
+    echo ''
+}
+
 if [ -z "$1" ]; then
-    echo ''
-    echo "Usage: gg-group-list <filter>"
-    echo "Use % filter to show all entries."
-    echo ''
-else 
-    if [ $1 = "%" ]; then
-        cut -d':' -f1 /etc/group
-    else
-        cut -d':' -f1 /etc/group | grep --color -i $1
-    fi
+    filter_warning
+    cut -d':' -f1 /etc/group
+    filter_warning
+else
+    cut -d':' -f1 /etc/group | grep --color -i $1
 fi
