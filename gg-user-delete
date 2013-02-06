@@ -14,6 +14,6 @@ else
 
     prompt_yn "Do you want to continue?"
 
-    deluser --remove-home $1
+    userdel -f $1
     delgroup --only-if-empty $1
 fi
