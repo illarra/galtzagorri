@@ -1,9 +1,7 @@
 #!/bin/bash
 echo ''
-echo 'NGINX'
+echo 'SERVICES'
 /etc/init.d/nginx status
-echo ''
-echo 'FPM'
 /etc/init.d/php5-fpm status
 echo ''
 echo 'STORAGE'
