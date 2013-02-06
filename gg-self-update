@@ -1,0 +1,8 @@
+#!/bin/bash
+# Include gg-lib
+. .gg-lib
+
+# Get current script location in $SCRIPT_PATH var
+get_script_path
+
+git --work-tree=$SCRIPT_PATH --git-dir=$SCRIPT_PATH/.git pull
