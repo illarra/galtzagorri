@@ -9,11 +9,11 @@ echo ''
 echo 'GALTZGORRI scripts'
 echo ''
 echo 'SETUP'
-echo "It's recommended to add galtzagorri installation path to you PATH env var."
+echo "It's recommended to add Galtzagorri installation path to you PATH env var."
 echo "Check if '${SCRIPT_PATH}' is found in your PATH:"
 echo ''
 echo "PATH=${PATH}"
 echo ''
-echo 'If not, just add it so you can call "gg-" from anywhere:'
+echo 'If not, just add it so you can run Galtzagorri (gg) scripts from anywhere:'
 echo "$ PATH=\$PATH:${SCRIPT_PATH}"
 echo ''
