@@ -1,7 +1,13 @@
 #!/bin/bash
-if [ -z "$1" ]
-then
-    apt-cache pkgnames
+if [ -z "$1" ]; then
+    echo ''
+    echo "Usage: gg-apt-list-available <filter>"
+    echo "Use % filter to show all packages."
+    echo ''
 else 
-    apt-cache pkgnames | grep -i $1
+    if [ $1 = "%" ]; then
+        apt-cache pkgnames
+    else
+        apt-cache pkgnames | grep --color -i $1
+    fi
 fi
