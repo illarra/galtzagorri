@@ -1,13 +1,14 @@
 #!/bin/bash
+function filter_warning {
+    echo ''
+    echo 'You can filter the list with: gg-apt-list-available <filter>'
+    echo ''
+}
+
 if [ -z "$1" ]; then
-    echo ''
-    echo "Usage: gg-apt-list-available <filter>"
-    echo "Use % filter to show all packages."
-    echo ''
-else 
-    if [ $1 = "%" ]; then
-        apt-cache pkgnames
-    else
-        apt-cache pkgnames | grep --color -i $1
-    fi
+    filter_warning
+    apt-cache pkgnames
+    filter_warning
+else
+    apt-cache pkgnames | grep --color -i $1
 fi
