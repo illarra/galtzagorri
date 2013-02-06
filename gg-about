@@ -6,7 +6,7 @@
 get_script_path
 
 echo ''
-echo 'GALTZGORRI scripts'
+echo 'GALTZAGORRI scripts'
 echo ''
 echo 'SETUP'
 echo "It's recommended to add Galtzagorri installation path to you PATH env var."
@@ -14,6 +14,6 @@ echo "Check if '${SCRIPT_PATH}' is found in your PATH:"
 echo ''
 echo "PATH=${PATH}"
 echo ''
-echo 'If not, just add it to your .profile file so you can run Galtzagorri (gg) scripts from anywhere:'
+echo 'If not, just add this line into your .profile file so you can run Galtzagorri (gg) scripts from anywhere:'
 echo "export PATH=\$PATH:${SCRIPT_PATH}"
 echo ''
