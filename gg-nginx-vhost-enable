@@ -1,6 +1,10 @@
 #!/bin/bash
 # Include gg-lib
+. .gg-lib
 . .gg-paths
+
+# Get current script location in $SCRIPT_PATH var
+get_script_path
 
 if [ ! $# == 3 ]; then
     echo ''
@@ -15,7 +19,7 @@ else
     if [ ! -f $FILE_ENABLED ]; then
         if [ -f $FILE_AVAILABLE ]; then
             ln -s $FILE_AVAILABLE $FILE_ENABLED
-            $SCRIPT_PATH/gg-fpm restart
+            $SCRIPT_PATH/gg-nginx restart
         else
             echo ''
             echo "${CONF} not found!"
