@@ -1,0 +1,9 @@
+#!/bin/bash
+if [ -z "$1" ]; then
+    echo ''
+    echo "Usage: gg-fpm-pool-create <poolname>"
+    echo "<poolname> should be the same as the username."
+    echo ''
+else 
+    echo $1
+fi
