@@ -19,5 +19,5 @@ else
         echo "${CONF} it's not enabled!"
         echo "Run gg-nginx-vhost-list-enabled to see enabled vhosts."
         echo ''
-    if
+    fi
 fi
