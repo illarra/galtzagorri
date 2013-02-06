@@ -1,13 +1,11 @@
 #!/bin/bash
-if [ -z "$1" ]
-then
+if [ -z "$1" ]; then
     echo ''
     echo "Usage: gg-apt-list-installed <filter>"
     echo "Use * filter to show all packages."
     echo ''
 else 
-    if [ "$1" = "*" ]
-    then
+    if [ $1 = "*" ]; then
         dpkg --get-selections | grep --color -i "[[:space:]]install"
     else
         dpkg --get-selections | grep --color -i "[[:space:]]install" | grep --color -i $1
