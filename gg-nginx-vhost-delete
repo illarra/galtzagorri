@@ -5,3 +5,17 @@
 
 # Get current script location in $SCRIPT_PATH var
 get_script_path
+
+if [ ! $# == 3 ]; then
+    echo ''
+    echo "Usage: gg-nginx-vhost-delete <username> <project> <env>"
+    echo "<env>: prod, staging, ... (capifony env)"
+    echo ''
+else
+    CONF="${2}_${3}_${4}" 
+    FILE_AVAILABLE="${GG_NGINX_AVAILABLE}/${CONF}"
+    FILE_ENABLED="${GG_NGINX_ENABLED}/${CONF}"
+    rm $FILE_ENABLED
+    rm $FILE_AVAILABLE
+    $SCRIPT_PATH/gg-nginx restart
+fi
