@@ -8,8 +8,8 @@ then
 else 
     if [ "$1" = "*" ]
     then
-        dpkg --get-selections | grep --color -i install
+        dpkg --get-selections | grep --color -i "[[:space:]]install"
     else
-        dpkg --get-selections | grep --color -i $1
+        dpkg --get-selections | grep --color -i "[[:space:]]install" | grep --color -i $1
     fi
 fi
