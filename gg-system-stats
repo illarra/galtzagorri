@@ -1,18 +1,8 @@
 #!/bin/bash
-
-memusage=`top -n 1 -b | grep "Mem"`
-MAXMEM=`echo $memusage | cut -d" " -f2 | awk '{print substr($0,1,length($0)-1)}'`
-USEDMEM=`echo $memusage | cut -d" " -f4 | awk '{print substr($0,1,length($0)-1)}'`
-
-USEDMEM1=`expr $USEDMEM \* 100`
-PERCENTAGE=`expr $USEDMEM1 / $MAXMEM`%
-
 echo ''
 echo 'STORAGE'
 df -h
 echo ''
-echo 'RAM'
-echo "Total Memory:           $MAXMEM KB"
-echo "Used Memory:            $USEDMEM KB" 
-echo "Used Memory Percentage: $PERCENTAGE"
+echo 'SYSTEM'
+vmstat -aS M
 echo ''
