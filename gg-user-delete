@@ -15,5 +15,5 @@ else
     prompt_yn "Do you want to continue?"
 
     userdel -r $1
-    crontab -r -u $1
+    crontab -r -u $1 2>/dev/null # don't show errors
 fi
