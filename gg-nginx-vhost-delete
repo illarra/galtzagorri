@@ -12,7 +12,7 @@ if [ ! $# == 3 ]; then
     echo "<env>: prod, staging, ... (capifony env)"
     echo ''
 else
-    CONF="${2}_${3}_${4}" 
+    CONF="${1}_${2}_${3}" 
     FILE_AVAILABLE="${GG_NGINX_AVAILABLE}/${CONF}"
     FILE_ENABLED="${GG_NGINX_ENABLED}/${CONF}"
     rm $FILE_ENABLED
