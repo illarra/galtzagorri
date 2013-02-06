@@ -1,0 +1,13 @@
+#!/bin/bash
+if [ -z "$1" ]; then
+    echo ''
+    echo "Usage: gg-user-list <filter>"
+    echo "Use % filter to show all entries."
+    echo ''
+else 
+    if [ $1 = "%" ]; then
+        cut -d':' -f1 /etc/passwd
+    else
+        cut -d':' -f1 /etc/passwd | grep --color -i $1
+    fi
+fi
