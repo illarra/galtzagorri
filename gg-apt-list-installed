@@ -1,2 +1,15 @@
 #!/bin/bash
-dpkg --get-selections
+if [ -z "$1" ]
+then
+    echo ''
+    echo "Usage: gg-apt-list-installed <filter>"
+    echo "Use * filter to show al packages."
+    echo ''
+else 
+    if [ "$1" -eq "*" ]
+    then
+        dpkg --get-selections
+    else
+        dpkg --get-selections | grep -i $1
+    fi
+fi

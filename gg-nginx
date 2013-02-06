@@ -1,0 +1,9 @@
+#!/bin/bash
+if [ -z "$1" ]
+then
+    echo ''
+    echo "Usage: gg-nginx {start|stop|restart|reload|force-reload|status|configtest}"
+    echo ''
+else 
+    /etc/init.d/nginx $1
+fi

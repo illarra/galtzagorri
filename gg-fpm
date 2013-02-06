@@ -1,0 +1,9 @@
+#!/bin/bash
+if [ -z "$1" ]
+then
+    echo ''
+    echo "Usage: gg-fpm {start|stop|status|restart|reload|force-reload}"
+    echo ''
+else 
+    /etc/init.d/php5-fpm $1
+fi
