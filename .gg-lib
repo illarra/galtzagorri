@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Usefull links
+#
+# http://stackoverflow.com/questions/2390738/bash-argument-list-segment
+# gg-apt-install a b c d
+# => apt-get install a b c d
+
 # Get current script PATH, it saves the result in $SCRIPT_PATH
 function get_script_path {
     SCRIPT_PATH="`dirname \"$0\"`"              # relative
