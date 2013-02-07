@@ -1,0 +1,9 @@
+#!/bin/bash
+# Include gg-lib
+. .gg-paths
+
+echo ''
+echo '/etc/init.d/'
+echo $GG_NGINX_PATH
+echo $GG_FPM_PATH
+echo ''
