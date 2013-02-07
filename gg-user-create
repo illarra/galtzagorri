@@ -4,5 +4,5 @@ if [ -z "$1" ]; then
     echo "Usage: gg-user-create <username>"
     echo ''
 else 
-    adduser $1
+    adduser --gecos "" $1
 fi
