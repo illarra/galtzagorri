@@ -9,7 +9,7 @@ get_script_path
 if [ ! $# == 5 ]; then
     echo ''
     echo "Usage: gg-nginx-vhost-create <domain> <username> <project> <env> <front-controller>"
-    echo "<domain>: stage.example.com, \"example.com www.example.com\", ..."
+    echo "<domain>: staging.example.com, \"example.com www.example.com\", ..."
     echo "<env>: prod, staging, ... (capifony env)"
     echo "<front-controller>: app, app_dev, ... (without .php extension)"
     echo ''
