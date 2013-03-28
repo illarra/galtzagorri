@@ -3,6 +3,7 @@ echo ''
 echo 'SERVICES'
 /etc/init.d/nginx status
 /etc/init.d/php5-fpm status
+/etc/init.d/mysql status
 echo ''
 echo 'STORAGE'
 df -h
