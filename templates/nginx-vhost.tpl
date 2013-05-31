@@ -12,14 +12,22 @@ server {
     rewrite ^/%FRONTCONTROLLER%\.php/?(.*)$ /$1 permanent;
  
     location = /favicon.ico {
-        log_not_found off;
-        access_log off;
+        access_log     off;
+        log_not_found  off;
     }
  
     location = /robots.txt {
         allow all;
-        log_not_found off;
-        access_log off;
+        access_log     off;
+        log_not_found  off;
+    }
+    
+    location ~* \.(js|css|png|jpg|jpeg|gif|ico)$ {
+        expires        max;
+        add_header     Pragma public;
+        add_header     Cache-Control "public, must-revalidate, proxy-revalidate";
+        access_log     off;
+        log_not_found  off;
     }
  
     location / {
