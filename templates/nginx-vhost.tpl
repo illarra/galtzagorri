@@ -11,6 +11,17 @@ server {
     # strip %FRONTCONTROLLER%.php/ prefix if it is present
     rewrite ^/%FRONTCONTROLLER%\.php/?(.*)$ /$1 permanent;
  
+    location = /favicon.ico {
+        log_not_found off;
+        access_log off;
+    }
+ 
+    location = /robots.txt {
+        allow all;
+        log_not_found off;
+        access_log off;
+    }
+ 
     location / {
         index %FRONTCONTROLLER%.php;
         try_files $uri @rewriteapp;
